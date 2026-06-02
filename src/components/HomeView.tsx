@@ -196,14 +196,14 @@ export default function HomeView({
 
         {/* Floating Cartographic Details Indicator */}
         <div className="absolute bottom-12 right-16 hidden lg:block text-right border-r-2 border-[#002045] dark:border-sky-500 pr-6 space-y-2">
-          <p className="font-mono text-[10px] text-gray-400 dark:text-slate-500 font-semibold uppercase tracking-wider">
-            PROJECTION: <span className="text-[#002045] dark:text-sky-300 font-bold">{projection}</span>
+          <p className="font-mono text-[10px] text-[#002045] dark:text-sky-400 font-bold uppercase tracking-wider">
+            PROJECTION: <span className="text-[#002045] dark:text-sky-300 font-black">{projection}</span>
           </p>
-          <p className="font-mono text-[11px] text-gray-500 dark:text-slate-400 font-bold tracking-tight">
+          <p className="font-mono text-[11px] text-[#002045] dark:text-sky-300 font-extrabold tracking-tight">
             {latVal} / {lngVal}
           </p>
-          <div className="scale-bar-line w-40 opacity-70"></div>
-          <p className="font-mono text-[10px] text-[#002045] dark:text-sky-300 font-bold tracking-widest uppercase">
+          <div className="scale-bar-line w-40 opacity-70 bg-[#002045] dark:bg-sky-500 h-[2px]"></div>
+          <p className="font-mono text-[10px] text-[#002045] dark:text-sky-300 font-black tracking-widest uppercase">
             1:50,000 SCALE
           </p>
         </div>

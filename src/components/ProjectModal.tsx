@@ -5,8 +5,9 @@
 
 import React, { useState } from 'react';
 import { Project } from '../types';
-import { X, Layers, BrainCircuit, Target, Globe, BookOpen, Cpu, Check } from 'lucide-react';
+import { X, Layers, BrainCircuit, Target, Globe, BookOpen, Cpu, Check, Download } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import MapLightbox from './MapLightbox';
 
 interface ProjectModalProps {
   project: Project | null;
@@ -19,6 +20,7 @@ export default function ProjectModal({ project, onClose, language }: ProjectModa
   const [analysisProgress, setAnalysisProgress] = useState(0);
   const [analysisLogs, setAnalysisLogs] = useState<string[]>([]);
   const [selectedScenario, setSelectedScenario] = useState('Default (Standard Boundary)');
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
   if (!project) return null;
 
@@ -95,13 +97,25 @@ export default function ProjectModal({ project, onClose, language }: ProjectModa
           id="project-modal-container"
         >
           {/* Header Image Bar */}
-          <div className="relative h-64 md:h-80 bg-[#00142e] overflow-hidden">
+          <div 
+            id="modal-header-image-container"
+            onClick={() => setIsLightboxOpen(true)}
+            className="relative h-64 md:h-80 bg-[#00142e] overflow-hidden group/image cursor-pointer"
+            title="Click to view and download full map in high-res"
+          >
             <img 
               src={project.image} 
               alt={project.title} 
-              className="w-full h-full object-cover opacity-85 mix-blend-normal transition-all grayscale"
+              className="w-full h-full object-cover opacity-85 mix-blend-normal transition-all grayscale group-hover/image:grayscale-0 group-hover/image:scale-[1.01] duration-500"
               referrerPolicy="no-referrer"
             />
+            {/* Hover clear overlay */}
+            <div className="absolute inset-0 bg-black/30 opacity-0 group-hover/image:opacity-100 transition-opacity flex items-center justify-center gap-1.5 z-10">
+              <span className="bg-sky-950/90 border border-sky-400/40 text-sky-200 text-xs font-mono py-2 px-3.5 shadow-lg uppercase tracking-wider flex items-center gap-1.5">
+                <Layers className="w-4 h-4 text-emerald-400" />
+                View Full Map (High Resolution)
+              </span>
+            </div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
             
             {/* Close Button */}
@@ -185,6 +199,25 @@ export default function ProjectModal({ project, onClose, language }: ProjectModa
             {/* Sidebar Column */}
             <div className="md:col-span-5 space-y-6">
               
+              {/* Cartographic Export / High-Res view */}
+              <div id="sidebar-map-export" className="bg-[#00142e] border border-sky-950/80 p-5 rounded space-y-3 shadow-md">
+                <h4 className="font-display font-bold text-xs text-emerald-400 uppercase tracking-wider flex items-center gap-2">
+                  <Globe className="w-4 h-4 text-sky-400" />
+                  Cartographic Export
+                </h4>
+                <p className="font-sans text-xs text-slate-300 leading-relaxed">
+                  Analyze the map features, grid overlays, and legend details in clear full-color. Download the map in high resolution for reports or presentations.
+                </p>
+                <button
+                  id="btn-sidebar-view-high-res"
+                  onClick={() => setIsLightboxOpen(true)}
+                  className="w-full bg-emerald-600 hover:bg-emerald-500 text-white py-2.5 rounded font-mono text-xs uppercase tracking-wider font-semibold transition-all hover:shadow-lg cursor-pointer text-center flex items-center justify-center gap-2"
+                >
+                  <Download className="w-4 h-4" />
+                  View &amp; Download Map
+                </button>
+              </div>
+
               {/* GIS Inputs */}
               <div className="bg-slate-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 p-5 rounded">
                 <h4 className="font-display font-bold text-xs text-[#002045] dark:text-sky-300 uppercase tracking-wider flex items-center gap-2 mb-4 border-b border-gray-200 dark:border-slate-800 pb-2">
@@ -286,6 +319,15 @@ export default function ProjectModal({ project, onClose, language }: ProjectModa
 
           </div>
         </motion.div>
+
+        {/* Map high resolution Lightbox modal */}
+        <MapLightbox
+          isOpen={isLightboxOpen}
+          onClose={() => setIsLightboxOpen(false)}
+          imageUrl={project.image}
+          title={project.title}
+          language={language}
+        />
       </div>
     </AnimatePresence>
   );

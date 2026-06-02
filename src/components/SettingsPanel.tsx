@@ -19,6 +19,8 @@ interface SettingsPanelProps {
   themeType: 'Soft Slate' | 'High Contrast' | 'Classic Mono';
   setThemeType: (theme: 'Soft Slate' | 'High Contrast' | 'Classic Mono') => void;
   language: 'EN' | 'ML' | 'HI';
+  isDarkMode: boolean;
+  setIsDarkMode: (val: boolean) => void;
 }
 
 export default function SettingsPanel({
@@ -32,7 +34,9 @@ export default function SettingsPanel({
   setCoordsFormat,
   themeType,
   setThemeType,
-  language
+  language,
+  isDarkMode,
+  setIsDarkMode
 }: SettingsPanelProps) {
   if (!isOpen) return null;
 
@@ -43,6 +47,8 @@ export default function SettingsPanel({
       projection: 'Mathematical Projection Standards',
       grid: 'Background Map Grid Lines',
       gridDesc: 'Render interactive dot overlays on background sections',
+      darkMode: 'Global Dark Mode',
+      darkModeDesc: 'Enable custom dark color scheme across all sections',
       coords: 'Coordinate Degree Formatting',
       theme: 'Visual Contrast Presets',
       close: 'Apply Configurations'
@@ -53,6 +59,8 @@ export default function SettingsPanel({
       projection: 'മാത്തമാറ്റിക്കൽ പ്രൊജക്ഷൻ സ്റ്റാൻഡേർഡ്',
       grid: 'ബാക്ക്ഗ്രൗണ്ട് മാപ്പ് ഗ്രിഡ് ലൈനുകൾ',
       gridDesc: 'പശ്ചാത്തലത്തിൽ ഡോട്ടഡ് ഗ്രിഡ് ഓവർലേ കാണിക്കുക',
+      darkMode: 'ഗ്ലോബൽ ഡാർക്ക് മോഡ്',
+      darkModeDesc: 'എല്ലാ വിഭാഗങ്ങളിലും ഡാർക്ക് തീം പ്രവർത്തനക്ഷമമാക്കുക',
       coords: 'കോർഡിനേറ്റ് ഫോർമാറ്റിംഗ്',
       theme: 'വിഷ്വൽ തീം പ്രീസെറ്റുകൾ',
       close: 'ക്രമീകരണങ്ങൾ സംരക്ഷിക്കുക'
@@ -63,6 +71,8 @@ export default function SettingsPanel({
       projection: 'गणितीय प्रक्षेपण मानक',
       grid: 'पृष्ठभूमि ग्रिड रेखाएँ',
       gridDesc: 'पृष्ठभूमि में बिंदु ओवरले प्रदर्शित करें',
+      darkMode: 'वैश्विक डार्क मोड',
+      darkModeDesc: 'सभी अनुभागों में डार्क थीम सक्षम करें',
       coords: 'समन्वय डिग्री प्रारूप',
       theme: 'दृश्य कंट्रास्ट प्रीसेट',
       close: 'कॉन्फ़िगरेशन लागू करें'
@@ -159,6 +169,33 @@ export default function SettingsPanel({
               </div>
               <p className="font-sans text-[11px] text-gray-400 dark:text-slate-500 leading-relaxed">
                 {labels.gridDesc}
+              </p>
+            </div>
+
+            {/* Global Dark Mode Toggle */}
+            <div className="space-y-3">
+              <div className="flex justify-between items-center">
+                <label className="font-display font-bold text-xs text-gray-700 dark:text-slate-300 uppercase tracking-wider">
+                  {labels.darkMode}
+                </label>
+                <button
+                  id="btn-toggle-darkmode"
+                  onClick={() => setIsDarkMode(!isDarkMode)}
+                  className={`w-11 h-6 rounded-full p-1 transition-colors cursor-pointer ${
+                    isDarkMode 
+                      ? 'bg-[#0a6c44] dark:bg-emerald-600' 
+                      : 'bg-gray-200 dark:bg-slate-800'
+                  }`}
+                >
+                  <div 
+                    className={`bg-white w-4 h-4 rounded-full shadow-md transform transition-transform ${
+                      isDarkMode ? 'translate-x-5' : 'translate-x-0'
+                    }`}
+                  ></div>
+                </button>
+              </div>
+              <p className="font-sans text-[11px] text-gray-400 dark:text-slate-500 leading-relaxed">
+                {labels.darkModeDesc}
               </p>
             </div>
 

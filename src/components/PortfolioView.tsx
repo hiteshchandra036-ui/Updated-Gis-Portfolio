@@ -7,6 +7,7 @@ import React, { useState, useMemo } from 'react';
 import { Project } from '../types';
 import { PROJECTS } from '../data';
 import { Search, Compass, Sliders, MapPin, Grid, AlertCircle, RefreshCw } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 
 interface PortfolioViewProps {
   onSelectProject: (proj: Project) => void;
@@ -186,60 +187,67 @@ export default function PortfolioView({ onSelectProject, language, coordsFormat 
 
       {/* Grid listing */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {filteredProjects.map(proj => (
-          <div
-            key={proj.id}
-            id={`project-card-${proj.id}`}
-            onClick={() => onSelectProject(proj)}
-            className="group cursor-pointer bg-white dark:bg-[#001733] border border-gray-150 dark:border-slate-800 rounded overflow-hidden hover:shadow-xl transition-all flex flex-col h-full hover:-translate-y-1 duration-300"
-          >
-            {/* Top header values card */}
-            <div className="aspect-video relative overflow-hidden bg-slate-900 border-b border-gray-200 dark:border-slate-800">
-              <img
-                src={proj.image}
-                alt={proj.title}
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 opacity-95"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute top-3 left-3 bg-slate-900/85 backdrop-blur-xs text-white text-[9px] font-mono font-bold py-1 px-2 uppercase border border-white/10 tracking-widest">
-                REF: {proj.ref}
-              </div>
-              <div className="absolute top-3 right-3 bg-emerald-800/85 backdrop-blur-xs text-white text-[9px] font-mono py-1 px-2 border border-emerald-600/50 flex items-center gap-1">
-                <MapPin className="w-2.5 h-2.5" />
-                {formatCoord(proj.latlng)}
-              </div>
-            </div>
-
-            {/* Bottom details block */}
-            <div className="p-6 flex-grow flex flex-col justify-between space-y-4">
-              <div className="space-y-2">
-                <span className="font-mono text-[9px] text-[#002045] dark:text-sky-300 font-bold tracking-widest uppercase block">
-                  {proj.category}
-                </span>
-                <h3 className="font-display font-bold text-base text-[#002045] dark:text-slate-100 group-hover:text-[#0a6c44] dark:group-hover:text-emerald-400 transition-colors tracking-tight leading-snug">
-                  {proj.title}
-                </h3>
-                <p className="font-sans text-xs text-gray-500 dark:text-slate-400 line-clamp-3 leading-relaxed">
-                  {proj.description}
-                </p>
-              </div>
-
-              {/* Bottom tag tools badges */}
-              <div className="pt-4 border-t border-gray-100 dark:border-slate-800/60 flex items-center justify-between">
-                <div className="flex flex-wrap gap-1">
-                  {proj.tags.slice(0, 2).map(t => (
-                    <span key={t} className="bg-slate-50 dark:bg-sky-950/40 text-gray-500 dark:text-sky-300 py-1 px-2 rounded text-[9px] font-mono">
-                      #{t}
-                    </span>
-                  ))}
+        <AnimatePresence mode="popLayout">
+          {filteredProjects.map(proj => (
+            <motion.div
+              layout
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.25, ease: 'easeOut' }}
+              key={proj.id}
+              id={`project-card-${proj.id}`}
+              onClick={() => onSelectProject(proj)}
+              className="group cursor-pointer bg-white dark:bg-[#001733] border border-gray-150 dark:border-slate-800 rounded overflow-hidden hover:shadow-xl transition-all flex flex-col h-full hover:-translate-y-1 duration-300"
+            >
+              {/* Top header values card */}
+              <div className="aspect-video relative overflow-hidden bg-slate-900 border-b border-gray-200 dark:border-slate-800">
+                <img
+                  src={proj.image}
+                  alt={proj.title}
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 opacity-95"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute top-3 left-3 bg-slate-900/85 backdrop-blur-xs text-white text-[9px] font-mono font-bold py-1 px-2 uppercase border border-white/10 tracking-widest">
+                  REF: {proj.ref}
                 </div>
-                <span className="font-mono text-[10px] text-[#002045] dark:text-sky-300 font-bold uppercase tracking-wider group-hover:underline cursor-pointer">
-                  {labels.viewCase}
-                </span>
+                <div className="absolute top-3 right-3 bg-emerald-800/85 backdrop-blur-xs text-white text-[9px] font-mono py-1 px-2 border border-emerald-600/50 flex items-center gap-1">
+                  <MapPin className="w-2.5 h-2.5" />
+                  {formatCoord(proj.latlng)}
+                </div>
               </div>
-            </div>
-          </div>
-        ))}
+
+              {/* Bottom details block */}
+              <div className="p-6 flex-grow flex flex-col justify-between space-y-4">
+                <div className="space-y-2">
+                  <span className="font-mono text-[9px] text-[#002045] dark:text-sky-300 font-bold tracking-widest uppercase block">
+                    {proj.category}
+                  </span>
+                  <h3 className="font-display font-bold text-base text-[#002045] dark:text-slate-100 group-hover:text-[#0a6c44] dark:group-hover:text-emerald-400 transition-colors tracking-tight leading-snug">
+                    {proj.title}
+                  </h3>
+                  <p className="font-sans text-xs text-gray-500 dark:text-slate-400 line-clamp-3 leading-relaxed">
+                    {proj.description}
+                  </p>
+                </div>
+
+                {/* Bottom tag tools badges */}
+                <div className="pt-4 border-t border-gray-100 dark:border-slate-800/60 flex items-center justify-between">
+                  <div className="flex flex-wrap gap-1">
+                    {proj.tags.slice(0, 2).map(t => (
+                      <span key={t} className="bg-slate-50 dark:bg-sky-950/40 text-gray-500 dark:text-sky-300 py-1 px-2 rounded text-[9px] font-mono">
+                        #{t}
+                      </span>
+                    ))}
+                  </div>
+                  <span className="font-mono text-[10px] text-[#002045] dark:text-sky-300 font-bold uppercase tracking-wider group-hover:underline cursor-pointer">
+                    {labels.viewCase}
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </AnimatePresence>
       </div>
 
       {/* Empty State, if list is empty */}

@@ -23,11 +23,21 @@ export default function App() {
   const [coordsFormat, setCoordsFormat] = useState<'Decimal' | 'DMS'>('Decimal');
   const [themeType, setThemeType] = useState<'Soft Slate' | 'High Contrast' | 'Classic Mono'>('Soft Slate');
   const [language, setLanguage] = useState<'EN' | 'ML' | 'HI'>('EN');
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   // Change html document lang & direction
   useEffect(() => {
     document.title = "Hitesh Chandra - Cartographic & Spatial Analysis Portfolio";
   }, []);
+
+  // Synchronize document tag with dark class for unified styling
+  useEffect(() => {
+    if (isDarkMode || themeType === 'High Contrast') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDarkMode, themeType]);
 
   const toggleLanguage = () => {
     if (language === 'EN') setLanguage('ML');
@@ -41,10 +51,14 @@ export default function App() {
       case 'High Contrast':
         return 'bg-slate-900 border-slate-950 text-slate-100 font-sans dark';
       case 'Classic Mono':
-        return 'bg-white text-gray-900 font-sans grayscale';
+        return isDarkMode 
+          ? 'bg-slate-950 text-slate-100 font-sans dark grayscale border-slate-900' 
+          : 'bg-white text-gray-900 font-sans grayscale';
       case 'Soft Slate':
       default:
-        return 'bg-slate-50 text-gray-800 font-sans';
+        return isDarkMode 
+          ? 'bg-[#000a14] bg-slate-950 text-slate-100 font-sans dark border-slate-900' 
+          : 'bg-slate-50 text-gray-800 font-sans';
     }
   };
 
@@ -113,6 +127,8 @@ export default function App() {
         themeType={themeType}
         setThemeType={setThemeType}
         language={language}
+        isDarkMode={isDarkMode}
+        setIsDarkMode={setIsDarkMode}
       />
 
       {/* Case Study Metadata Detail Modal overlay popup */}
