@@ -53,7 +53,7 @@ export default function AboutView({ language }: AboutViewProps) {
       mscGrade: 'CGPA: 8.23 / 10.0',
       mscYears: '2023 - 2025',
       bscDegree: 'B.Sc. Geography',
-      bscSchool: 'University of Kerala, Department of S.N. College',
+      bscSchool: 'University of Kerala, Department of Geography',
       bscGrade: 'CGPA: 7.51 / 10.0',
       bscYears: '2020 - 2023',
       dissertationTitle: 'Featured Research & Dissertations',
@@ -71,7 +71,7 @@ export default function AboutView({ language }: AboutViewProps) {
       mscGrade: 'CGPA: 8.23 / 10.0',
       mscYears: '2023 - 2025',
       bscDegree: 'ബി.എസ്.സി ജിയോഗ്രാഫി',
-      bscSchool: 'കേരള സർവകലാശാല, എസ്.എൻ കോളേജ്',
+      bscSchool: 'കേരള സർവകലാശാല, ഡിപ്പാർട്ട്മെന്റ് ഓഫ് ജിയോഗ്രാഫി',
       bscGrade: 'CGPA: 7.51 / 10.0',
       bscYears: '2020 - 2023',
       dissertationTitle: 'ഗവേഷണ പ്രബന്ധങ്ങൾ',
@@ -89,7 +89,7 @@ export default function AboutView({ language }: AboutViewProps) {
       mscGrade: 'CGPA: 8.23 / 10.0',
       mscYears: '2023 - 2025',
       bscDegree: 'बी.एससी भूगोल',
-      bscSchool: 'केरल विश्वविद्यालय, एस.एन कॉलेज',
+      bscSchool: 'केरल विश्वविद्यालय, भूगोल विभाग',
       bscGrade: 'CGPA: 7.51 / 10.0',
       bscYears: '2020 - 2023',
       dissertationTitle: 'विशेषीकृत थीसिस और अनुसंधान',
@@ -496,7 +496,7 @@ export default function AboutView({ language }: AboutViewProps) {
                       <span>B.Sc. Geography</span>
                       <span>2020 - 2023</span>
                     </div>
-                    <p className="text-xs text-gray-500">University of Kerala | CGPA: 7.51</p>
+                    <p className="text-xs text-gray-500">University of Kerala, Department of Geography | CGPA: 7.51</p>
                   </div>
                 </div>
               </div>
