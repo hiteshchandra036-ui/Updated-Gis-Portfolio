@@ -51,11 +51,11 @@ export default function AboutView({ language }: AboutViewProps) {
       mscDegree: 'M.Sc. Geography',
       mscSchool: 'Kannur University, Department of Geography',
       mscGrade: 'CGPA: 8.23 / 10.0',
-      mscYears: '2022 - 2024',
+      mscYears: '2023 - 2025',
       bscDegree: 'B.Sc. Geography',
       bscSchool: 'University of Kerala, Department of S.N. College',
       bscGrade: 'CGPA: 7.51 / 10.0',
-      bscYears: '2019 - 2022',
+      bscYears: '2020 - 2023',
       dissertationTitle: 'Featured Research & Dissertations',
       arsenalTitle: 'Technical Tools Arsenal',
       contactTitle: 'Contact & Collaboration Request',
@@ -69,11 +69,11 @@ export default function AboutView({ language }: AboutViewProps) {
       mscDegree: 'എം.എസ്.സി ജിയോഗ്രാഫി',
       mscSchool: 'കണ്ണൂർ സർവകലാശാല, ഡിപ്പാർട്ട്മെന്റ് ഓഫ് ജിയോഗ്രാഫി',
       mscGrade: 'CGPA: 8.23 / 10.0',
-      mscYears: '2022 - 2024',
+      mscYears: '2023 - 2025',
       bscDegree: 'ബി.എസ്.സി ജിയോഗ്രാഫി',
       bscSchool: 'കേരള സർവകലാശാല, എസ്.എൻ കോളേജ്',
       bscGrade: 'CGPA: 7.51 / 10.0',
-      bscYears: '2019 - 2022',
+      bscYears: '2020 - 2023',
       dissertationTitle: 'ഗവേഷണ പ്രബന്ധങ്ങൾ',
       arsenalTitle: 'സാങ്കേതിക വൈദഗ്ദ്ധ്യം',
       contactTitle: 'ബന്ധപ്പെടുക / സഹകരണം',
@@ -87,11 +87,11 @@ export default function AboutView({ language }: AboutViewProps) {
       mscDegree: 'एम.एससी भूगोल',
       mscSchool: 'कन्नूर विश्वविद्यालय, भूगोल विभाग',
       mscGrade: 'CGPA: 8.23 / 10.0',
-      mscYears: '2022 - 2024',
+      mscYears: '2023 - 2025',
       bscDegree: 'बी.एससी भूगोल',
       bscSchool: 'केरल विश्वविद्यालय, एस.एन कॉलेज',
       bscGrade: 'CGPA: 7.51 / 10.0',
-      bscYears: '2019 - 2022',
+      bscYears: '2020 - 2023',
       dissertationTitle: 'विशेषीकृत थीसिस और अनुसंधान',
       arsenalTitle: 'तकनीकी उपकरण शस्त्रागार',
       contactTitle: 'संपर्क और सहयोगात्मक अनुरोध',
@@ -486,7 +486,7 @@ export default function AboutView({ language }: AboutViewProps) {
                   <div>
                     <div className="flex justify-between font-bold text-xs text-[#002045]">
                       <span>M.Sc. Geography</span>
-                      <span>2022 - 2024</span>
+                      <span>2023 - 2025</span>
                     </div>
                     <p className="text-xs text-gray-500">Kannur University, Department of Geography | CGPA: 8.23</p>
                     <p className="text-[11px] text-gray-400 italic">Core dissertation: Multi-temporal land cover dynamics spanning sub-districts and climate vectors.</p>
@@ -494,7 +494,7 @@ export default function AboutView({ language }: AboutViewProps) {
                   <div>
                     <div className="flex justify-between font-bold text-xs text-[#002045]">
                       <span>B.Sc. Geography</span>
-                      <span>2019 - 2022</span>
+                      <span>2020 - 2023</span>
                     </div>
                     <p className="text-xs text-gray-500">University of Kerala | CGPA: 7.51</p>
                   </div>
