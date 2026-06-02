@@ -105,17 +105,10 @@ export default function AboutView({ language }: AboutViewProps) {
   const dissertations = [
     {
       id: 'msc',
-      title: 'Post Graduate Dissertation: Spatio-temporal Land Cover Dynamics',
-      scope: 'Spanning years 2011 to 2023, utilizing Landsat-8 and Sentinel data overlays.',
-      description: 'Conducted a meticulous evaluation of vegetation depleting indicators across high-terrain mountain communities. Extracted multi-spectral indexes (NDVI, NDWI) and calculated land cover transformation matrices. Discovered a notable 14% shift in alpine vegetation zones correlated closely with local precipitation cycles.',
-      tools: 'Google Earth Engine, ArcGIS Pro, Python Pandas, Random Forest'
-    },
-    {
-      id: 'bsc',
-      title: 'Under Graduate Dissertation: Regional Hydrological Pattern Assessments',
-      scope: 'Basin runoff modeling utilizing SRTM digital elevation models.',
-      description: 'Delineated regional river catchments and analyzed local contour buffers. Created high-accuracy hazard projection charts mapping flood buffer zones relative to historical riverbank cresting records.',
-      tools: 'QGIS Desktop, Hydraulic Toolbox, MS Excel Stats'
+      title: 'Smart Growth for a Small Township: Geospatial Solutions for Urban Sustainability in Pala Municipality, Kerala',
+      scope: 'LULC Change Detection (2017 & 2024), Urban Growth Prediction & Simulation (2032 & 2040), Flood Risk Assessment, MCDA Land Suitability Mapping',
+      description: 'Conducted a comprehensive master’s dissertation on Pala Municipality using Sentinel-2B imagery (2017 & 2024), CA-Markov / CA-ANN models to simulate future urban growth boundaries for 2032 & 2040, a GIS-based Weighted Sum Analysis for Flood Risk Assessment (utilizing rainfall, river distance, elevation, slope, LULC, drainage, and road proximity layers), and a Multi-Criteria Decision Analysis (MCDA) based land suitability model to prioritize sustainable, climate-resilient development zones.',
+      tools: 'ArcGIS Pro, QGIS, Google Earth Engine, MOLUSCE Plugin'
     }
   ];
 
@@ -489,7 +482,7 @@ export default function AboutView({ language }: AboutViewProps) {
                       <span>2023 - 2025</span>
                     </div>
                     <p className="text-xs text-gray-500">Kannur University, Department of Geography | CGPA: 8.23</p>
-                    <p className="text-[11px] text-gray-400 italic">Core dissertation: Multi-temporal land cover dynamics spanning sub-districts and climate vectors.</p>
+                    <p className="text-[11px] text-gray-400 italic">Core dissertation: Smart Growth for a Small Township: Geospatial Solutions for Urban Sustainability in Pala Municipality, Kerala (LULC Modeling, Flood Risk & suitability mapping).</p>
                   </div>
                   <div>
                     <div className="flex justify-between font-bold text-xs text-[#002045]">
