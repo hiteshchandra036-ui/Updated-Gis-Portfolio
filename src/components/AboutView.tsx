@@ -4,7 +4,7 @@
  */
 
 import React, { useState } from 'react';
-import { Mail, GraduationCap, MapPin, Database, Award, BookOpen, Send, Download, CheckCircle, HelpCircle } from 'lucide-react';
+import { Mail, GraduationCap, MapPin, Database, Award, BookOpen, Send, Download, CheckCircle, HelpCircle, Linkedin, Github } from 'lucide-react';
 import { ContactMessage } from '../types';
 
 interface AboutViewProps {
@@ -224,7 +224,29 @@ export default function AboutView({ language }: AboutViewProps) {
             <div className="flex justify-between">
               <span>EMAIL:</span>
               <a href="mailto:hiteshchandra036@gmail.com" className="text-emerald-600 dark:text-emerald-400 hover:underline">
-                hiteshchandra036@@gmail.com
+                hiteshchandra036@gmail.com
+              </a>
+            </div>
+            <div className="flex justify-between items-center pt-1">
+              <span className="flex items-center gap-1.5"><Linkedin className="w-3.5 h-3.5 text-sky-500" /> LINKEDIN:</span>
+              <a 
+                href="https://www.linkedin.com/in/hitesh-chandra-20977a31a/" 
+                target="_blank" 
+                rel="noreferrer" 
+                className="text-emerald-600 dark:text-emerald-400 hover:underline font-semibold"
+              >
+                hitesh-chandra
+              </a>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="flex items-center gap-1.5"><Github className="w-3.5 h-3.5 text-slate-400" /> GITHUB:</span>
+              <a 
+                href="https://github.com/hiteshchandra036-ui" 
+                target="_blank" 
+                rel="noreferrer" 
+                className="text-emerald-600 dark:text-emerald-400 hover:underline font-semibold"
+              >
+                hiteshchandra036-ui
               </a>
             </div>
           </div>
@@ -451,6 +473,10 @@ export default function AboutView({ language }: AboutViewProps) {
                 <h1 className="text-3xl font-bold font-display uppercase text-[#002045]">Hitesh Chandra</h1>
                 <p className="font-mono text-xs uppercase text-[#0a6c44] font-semibold tracking-wider pt-1">Geospatial Analyst &amp; Cartography Expert</p>
                 <p className="text-xs text-gray-500 mt-1">Kerala, India | hiteshchandra036@gmail.com</p>
+                <div className="flex gap-4 text-xs font-mono text-gray-600 mt-1">
+                  <span>LinkedIn &bull; linkedin.com/in/hitesh-chandra-20977a31a</span>
+                  <span>GitHub &bull; github.com/hiteshchandra036-ui</span>
+                </div>
               </div>
               <button 
                 id="btn-system-print"

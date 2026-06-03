@@ -121,7 +121,7 @@ export default function Footer({ setActiveTab, language }: FooterProps) {
               </h5>
               <div className="flex md:justify-end gap-6 text-sm">
                 <a 
-                  href="https://linkedin.com/in/hitesh-chandra" 
+                  href="https://www.linkedin.com/in/hitesh-chandra-20977a31a/" 
                   target="_blank" 
                   rel="noreferrer" 
                   className="text-gray-500 dark:text-slate-400 hover:text-[#002045] dark:hover:text-sky-300 hover:underline font-medium transition-all"
@@ -129,7 +129,7 @@ export default function Footer({ setActiveTab, language }: FooterProps) {
                   LinkedIn
                 </a>
                 <a 
-                  href="https://github.com/hiteshchandra" 
+                  href="https://github.com/hiteshchandra036-ui" 
                   target="_blank" 
                   rel="noreferrer" 
                   className="text-gray-500 dark:text-slate-400 hover:text-[#002045] dark:hover:text-sky-300 hover:underline font-medium transition-all"
